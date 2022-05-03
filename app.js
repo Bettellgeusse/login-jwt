@@ -18,10 +18,17 @@ app.use(express.json())
 //seteamos las variables deentorno 
 dotenv.config({path: './env/.env'})
 
-//app.use(cookieParser)
+app.use(cookieParser())
 
 //LLamar al router
 app.use('/', require('./routes/router'))
+
+//Para eliminar la cache 
+app.use(function(req, res, next) {
+    if (!req.user)
+        res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
+});
 
 
 app.listen(3000, ()=>{

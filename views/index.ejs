@@ -94,6 +94,9 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Dashboard</h2>
         <h2>Bienvenido:</h2>
+        <% if (user) { %>
+          <span class="badge bg-success"><%= user.ROL_NOMBRE + ' '+ user.ROL_APELLIDO %></span>
+        <% } %>
       </div> 
     </main>
   </div>

@@ -43,7 +43,7 @@
     <h1 class="h3 mb-3 fw-normal">Login</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="cedula" placeholder="cedula">
+      <input type="text" class="form-control" id="cedula" name="cedula" placeholder="cedula">
       <label for="floatingInput">cedula</label>
     </div>
     <div class="form-floating">
@@ -58,7 +58,19 @@
   <a href="/register" type="button" class="w-100 btn btn-lg btn-bd-primary">Registrarse</a>
 </main>
 
-
-    
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <% if(alert){ %>
+    <script>
+      Swal.fire({
+        title: '<%= alertTitle %>',
+        text:'<%= alertMessage %>',
+        icon:'<%= alertIcon %>',
+        showConfirmButton: <%= showConfirmButton %>,
+        timer: <%= timer %>
+      }).then(()=>{
+        window.location = '/<%= ruta %>'
+      })
+    </script>
+  <% } %>
   </body>
 </html>
